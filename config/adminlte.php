@@ -239,9 +239,9 @@ return [
             'icon' => 'fas fa-fw fa-users',
         ],
         [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
+            'text'        => 'Призывники',
+            'url'         => '/recruits',
+            'icon' => 'fas fa-fw fa-users',
         ],
     ],
 

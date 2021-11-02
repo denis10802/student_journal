@@ -22,3 +22,4 @@ Auth::routes();
 
 Route::get('/',[HomeController::class, 'index']);
 Route::get('/students',[StudentController::class, 'index'])->name('students.index');
+Route::get('/recruits',[RecruitController::class,'index'])->name('recruits.index');
