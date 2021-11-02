@@ -35,4 +35,16 @@ class StudentService
                  );
          });
     }
+
+    public function oldsStudentsList ($age, $gender = 'm'|'w'): Collection
+    {
+        return Student::query()
+            ->where('age','>', $age)
+            ->where('gender', $gender)
+            ->get()
+            ->map(function ($student) {
+                return new RecruitResponseDto(
+                    $student->first_name.' '.$student->last_name.', '. $student->gender.', '.$student->age );
+            });
+    }
 }
