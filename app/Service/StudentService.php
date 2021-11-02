@@ -25,5 +25,14 @@ class StudentService
             });
     }
 
-   
+    public function courses($id)
+    {
+         return Student::with('courses')->find($id)
+             ->courses
+             ->map(function ($course) {
+                 return new CourseResponseDto(
+                     $course->name,
+                 );
+         });
+    }
 }
