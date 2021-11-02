@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Routing\ResponseFactory;
 
 class HomeController extends Controller
 {
@@ -11,18 +12,16 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(
+        public ResponseFactory $responseFactory,
+    )
     {
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
+
+    public function index(): Response
     {
-        return view('home');
+        return $this->responseFactory->view('admin.home');
     }
 }
